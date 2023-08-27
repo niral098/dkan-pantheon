@@ -1,0 +1,16 @@
+uuid: 50f8232b-11ac-459e-a798-c8962eb88076
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.api_user
+  module:
+    - user
+_core:
+  default_config_hash: KSNNgbgd9RffompyhhzKu_KBkgiUv8fsRadyqiKqf9o
+id: user_remove_role_action.api_user
+label: 'Remove the API User role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: api_user

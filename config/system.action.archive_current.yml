@@ -1,0 +1,13 @@
+uuid: ab53d10b-1735-47c1-9536-0dd8765e3556
+langcode: en
+status: true
+dependencies:
+  module:
+    - moderated_content_bulk_publish
+_core:
+  default_config_hash: jA-dWW4lwPrb-wRuulMa_ieNqemnCucxQuyYjezpHno
+id: archive_current
+label: 'Archive current revision'
+type: node
+plugin: archive_current_revision_action
+configuration: {  }

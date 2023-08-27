@@ -1,0 +1,19 @@
+uuid: b6e01b42-8186-48b4-91c2-569a734e9d8e
+langcode: en
+status: true
+dependencies:
+  module:
+    - search_api_db
+_core:
+  default_config_hash: 3Fxarn8KOsKv5wqv0SIXCxsc0azA1I5NNmFyCSSbyA4
+id: dkan
+name: DKAN
+description: ''
+backend: search_api_db
+backend_config:
+  database: 'default:default'
+  min_chars: 1
+  matching: words
+  autocomplete:
+    suggest_suffix: true
+    suggest_words: true

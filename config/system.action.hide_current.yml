@@ -1,0 +1,13 @@
+uuid: f389d6dc-f2f4-4ca3-9efe-beccc4cb7bb8
+langcode: en
+status: true
+dependencies:
+  module:
+    - metastore_admin
+_core:
+  default_config_hash: Nb-_jWuVoVXnsXTjKbjn44oaZQ5HVQMFcrkQfxFzuIw
+id: hide_current
+label: 'Hide current revision'
+type: node
+plugin: hide_current_revision_action
+configuration: {  }
