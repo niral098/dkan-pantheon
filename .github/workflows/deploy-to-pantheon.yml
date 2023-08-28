@@ -1,4 +1,4 @@
-name: Deploy Master to Pantheon
+name: Deploy to Pantheon
 on:
   push:
     branches:
@@ -6,6 +6,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v1
     - uses: shimataro/ssh-key-action@v2
@@ -13,17 +14,10 @@ jobs:
         key: ${{ secrets.PANTHEON_SSH_KEY }}
         config: ${{ secrets.SSH_CONFIG }}
         known_hosts: ${{ secrets.KNOWN_HOSTS }}
-    - name: Installing Terminus
-      uses: kopepasah/setup-pantheon-terminus@master
-      with:
-        pantheon-machine-token: ${{ secrets.PANTHEON_MACHINE_TOKEN }}
+
     - name: deployer
       env:
         pantheon_repo: '${{ secrets.PANTHEON_REPO }}'
-        pantheon_site_name: '${{ secrets.PANTHEON_SITE_NAME }}'
       run: |
-        echo ${{ secrets.KNOWN_HOSTS }}
         git remote add pantheon $pantheon_repo
-        git push pantheon HEAD:master
-        commit_message=$(git log -1 --pretty=%B)
-        terminus env:deploy $pantheon_site_name.dev --note="Automated deploy: $commit_message"
+        git push --force pantheon HEAD:master
