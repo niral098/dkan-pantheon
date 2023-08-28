@@ -12,7 +12,7 @@ jobs:
       with:
         key: ${{ secrets.PANTHEON_SSH_KEY }}
         # config: ${{ secrets.SSH_CONFIG }}
-        # known_hosts: ${{ secrets.KNOWN_HOSTS }}
+        known_hosts: ${{ secrets.KNOWN_HOSTS }}
     - name: Installing Terminus
       uses: kopepasah/setup-pantheon-terminus@master
       with:
@@ -22,6 +22,7 @@ jobs:
         pantheon_repo: '${{ secrets.PANTHEON_REPO }}'
         pantheon_site_name: '${{ secrets.PANTHEON_SITE_NAME }}'
       run: |
+        echo ${{ secrets.KNOWN_HOSTS }}
         git remote add pantheon $pantheon_repo
         git push pantheon HEAD:master
         commit_message=$(git log -1 --pretty=%B)
